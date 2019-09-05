@@ -35,7 +35,10 @@ RUN locale-gen en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
 RUN adduser --gecos '' --disabled-password coder && \
-	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd
+	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd && \
+	sysctl fs.inotify.max_user_watches=524288 && \
+	sysctl -p
+	
 
 USER coder
 # We create first instead of just using WORKDIR as when WORKDIR creates, the user is root.
