@@ -48,9 +48,9 @@ WORKDIR /home/coder/project
 VOLUME [ "/home/coder/project" ]
 
 COPY --from=0 /src/packages/server/cli-linux-x64 /usr/local/bin/code-server
-COPY extensions.tar.bz2 /usr/local/bin/code-server/extensions
 
 EXPOSE 8443
+COPY extensions.tar.bz2 /usr/local/bin/code-server/extensions
 COPY init /init
 
 ENTRYPOINT ["/init" "dumb-init", "code-server"]
