@@ -34,11 +34,8 @@ RUN locale-gen en_US.UTF-8
 # configured in /etc/default/locale so we need to set it manually.
 ENV LC_ALL=en_US.UTF-8
 
-COPY extensions.tar.bz2 /usr/local/bin/code-server/extensions
 RUN adduser --gecos '' --disabled-password coder && \
 	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd && \
-	tar -jxf /usr/local/bin/code-server/extensions/extensions.tar.bz2 -C /usr/local/bin/code-server/extensions && \
-	rm extensions.tar.bz2
 
 USER coder
 # We create first instead of just using WORKDIR as when WORKDIR creates, the user is root.
@@ -51,7 +48,9 @@ WORKDIR /home/coder/project
 VOLUME [ "/home/coder/project" ]
 
 COPY --from=0 /src/packages/server/cli-linux-x64 /usr/local/bin/code-server
+COPY extensions.tar.bz2 /usr/local/bin/code-server/extensions
 
 EXPOSE 8443
+COPY init /init
 
-ENTRYPOINT ["dumb-init", "code-server"]
+ENTRYPOINT ["/init" "dumb-init", "code-server"]
