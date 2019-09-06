@@ -50,7 +50,7 @@ VOLUME [ "/home/coder/project" ]
 COPY --from=0 /src/packages/server/cli-linux-x64 /usr/local/bin/code-server
 
 EXPOSE 8443
-COPY extensions.tar.bz2 /usr/local/bin/code-server/extensions/
+COPY extensions.tar.bz2 /usr/local/bin/code-server/extensions/extensions.tar.bz2
 COPY init /init
 
 ENTRYPOINT ["/init" "dumb-init", "code-server"]
