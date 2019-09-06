@@ -37,8 +37,7 @@ ENV LC_ALL=en_US.UTF-8
 COPY extensions.tar.bz2 /usr/local/bin/code-server/extensions
 RUN adduser --gecos '' --disabled-password coder && \
 	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd && \
-	cd /usr/local/bin/code-server/extensions && \
-	tar -jxf extensions.tar.bz2 && \
+	tar -jxf /usr/local/bin/code-server/extensions/extensions.tar.bz2 -C /usr/local/bin/code-server/extensions && \
 	rm extensions.tar.bz2
 
 USER coder
