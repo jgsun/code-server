@@ -35,7 +35,7 @@ RUN locale-gen en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
 RUN adduser --gecos '' --disabled-password coder && \
-	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd && \
+	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd
 
 USER coder
 # We create first instead of just using WORKDIR as when WORKDIR creates, the user is root.
