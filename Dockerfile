@@ -53,4 +53,4 @@ EXPOSE 8443
 COPY extensions.tar.bz2 /extensions.tar.bz2
 COPY init /init
 
-ENTRYPOINT ["dumb-init", "code-server", "/init"]
+ENTRYPOINT ["dumb-init", "code-server", "/ex-init"]
