@@ -55,4 +55,4 @@ COPY init /init
 
 # ENTRYPOINT ["dumb-init", "code-server"]
 ENTRYPOINT ["/init"]
-# CMD ["/ex-init"]
+CMD ["/bin/bash"]

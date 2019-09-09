@@ -2,12 +2,17 @@
 echo "start code-server"
 code-server &
 
-sleep 20s
+sleep 60s
+sleep 60s
 
 echo "adding extentions ... "
 cp extensions.tar.bz2 /usr/local/bin/code-server/extensions/
 cd /usr/local/bin/code-server/extensions
-tar -jxf extensions.tar.bz2 
+tar -jxf extensions.tar.bz2
 rm extensions.tar.bz2
 
 echo "adding extentions, done!"
+
+# execute the CMD
+echo "run bash!"
+exec "$@"
