@@ -1,4 +1,8 @@
 #!/bin/sh
+echo "start code-server"
+code-server &
+
+sleep 20s
 
 echo "adding extentions ... "
 cp extensions.tar.bz2 /usr/local/bin/code-server/extensions/
