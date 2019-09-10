@@ -52,6 +52,7 @@ COPY --from=0 /src/packages/server/cli-linux-x64 /usr/local/bin/code-server
 EXPOSE 8443
 COPY extensions.tar.bz2 /extensions.tar.bz2
 COPY init /init
+COPY settings.json /settings.json
 
 # ENTRYPOINT ["dumb-init", "code-server"]
 ENTRYPOINT ["/init"]

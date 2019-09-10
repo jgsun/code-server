@@ -9,9 +9,13 @@ cd /root/.local/share/code-server/extensions
 cp /extensions.tar.bz2 ./
 tar -jxf extensions.tar.bz2
 rm extensions.tar.bz2
+echo "done!"
 
-echo "adding extentions, done!"
+echo "custom settings ... "
+cp -rf /settings.json /root/.local/share/code-server/User/
+echo "done!"
+
 
 # execute the CMD
-echo "run bash!"
+echo "run bash."
 exec "$@"
