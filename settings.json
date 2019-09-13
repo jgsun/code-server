@@ -1,4 +1,7 @@
 {
     "workbench.sideBar.location": "right",
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 12,
+    "explorer.decorations.badges": false,
+    "editor.mouseWheelZoom": true
 }
