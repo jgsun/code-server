@@ -3,5 +3,7 @@
     "editor.minimap.enabled": false,
     "editor.fontSize": 12,
     "explorer.decorations.badges": false,
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "workbench.iconTheme": null,
+    "sideBarWidth": 160
 }
