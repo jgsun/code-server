@@ -1,9 +1,11 @@
 {
     "workbench.sideBar.location": "right",
+    "workbench.sideBar.Width": 160,
+    "workbench.iconTheme": null,
+    "workbench.colorTheme": "Default Dark+"
     "editor.minimap.enabled": false,
     "editor.fontSize": 12,
-    "explorer.decorations.badges": false,
     "editor.mouseWheelZoom": true,
-    "workbench.iconTheme": null,
-    "sideBarWidth": 160
+    "explorer.decorations.badges": false,
+    "explorer.openEditors.visible": 3,
 }
