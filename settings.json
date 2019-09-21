@@ -1,6 +1,6 @@
 {
     "workbench.sideBar.location": "right",
-    "workbench.sideBar.Width": 160,
+    "workbench.sideBar.width": 160,
     "workbench.iconTheme": null,
     "workbench.colorTheme": "Default Dark+"
     "editor.minimap.enabled": false,
