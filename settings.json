@@ -10,6 +10,6 @@
     "explorer.decorations.badges": false,
     "explorer.openEditors.visible": 3,
     "workbench.colorCustomizations": {
-        "editor.selectionHighlightBackground": "#ff0000"
+        "editor.selectionHighlightBackground": "#DBA901"
     }    
 }
