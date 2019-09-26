@@ -1,5 +1,5 @@
 {
-    "workbench.sideBar.location": "right",
+    "workbench.sideBar.location": "left",
     "workbench.sideBar.width": 160,
     "workbench.iconTheme": null,
     "workbench.colorTheme": "Default Dark+"
