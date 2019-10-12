@@ -8,7 +8,6 @@
     "editor.fontSize": 12,
     "editor.mouseWheelZoom": true,
     "explorer.decorations.badges": false,
-    "explorer.openEditors.visible": 3,
     "workbench.colorCustomizations": {
         "editor.selectionHighlightBackground": "#DBA901"
     }    
