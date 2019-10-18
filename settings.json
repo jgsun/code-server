@@ -2,7 +2,8 @@
     "workbench.sideBar.location": "left",
     "workbench.sideBar.width": 160,
     "workbench.iconTheme": null,
-    "workbench.colorTheme": "Default Dark+"
+    "workbench.colorTheme": "Monokai",
+    "workbench.editor.enablePreview": false,
     "editor.minimap.enabled": false,
     "editor.fontFamily": "'YaHei Consolas Hybrid', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 12,
