@@ -8,6 +8,8 @@ echo "adding extentions ... "
 cd /root/.local/share/code-server/extensions
 cp /extensions.tar.bz2 ./
 tar -jxf extensions.tar.bz2
+cp .plorefice.devicetree.tar.bz2 ./
+tar -jxf plorefice.devicetree.tar.bz2
 rm extensions.tar.bz2
 echo "done!"
 
