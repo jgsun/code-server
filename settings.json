@@ -1,15 +1,25 @@
 {
     "workbench.sideBar.location": "left",
-    "workbench.sideBar.width": 160,
+    "workbench.sideBar.width": 120,
     "workbench.iconTheme": null,
     "workbench.colorTheme": "Monokai",
     "workbench.editor.enablePreview": false,
     "editor.minimap.enabled": false,
     "editor.fontFamily": "'YaHei Consolas Hybrid', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.fontSize": 12,
+    "editor.fontSize": 10,
+    "editor.detectIndentation": true, //hard tab
+ //  "editor.detectIndentation": false, //soft tab
     "editor.mouseWheelZoom": true,
     "explorer.decorations.badges": false,
     "workbench.colorCustomizations": {
         "editor.selectionHighlightBackground": "#DBA901"
-    }    
+    }
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/repo/jiangusu":true
+    }
 }
