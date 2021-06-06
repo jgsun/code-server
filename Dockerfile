@@ -1,10 +1,5 @@
 FROM codercom/code-server:latest
 
-COPY extensions.tar.bz2 /extensions.tar.bz2
-COPY plorefice.devicetree.tar.bz2 /plorefice.devicetree.tar.bz2
-COPY init /init
-COPY settings.json /settings.json
-
 ENV http_proxy "http://10.158.100.6:8080/"
 ENV https_proxy "http://10.158.100.6:8080/"
 ENV no_proxy="localhost,127.0.0.1,instance-data,169.254.169.254,nokia.net,.nsn-net.net,.nsn-rdnet.net,.ext.net.nokia.com,.int.net.nokia.com,.inside.nsn.com,.inside.nokiasiemensnetworks.com"
