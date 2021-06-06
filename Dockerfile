@@ -1,4 +1,4 @@
-FROM code-server:latest
+FROM codercom/code-server: latest
 
 COPY extensions.tar.bz2 /extensions.tar.bz2
 COPY plorefice.devicetree.tar.bz2 /plorefice.devicetree.tar.bz2
