@@ -3,10 +3,6 @@ FROM codercom/code-server:latest
 USER root
 RUN apt -y update && apt -y install gcc wget
 
-ENV http_proxy "http://10.158.100.6:8080/"
-ENV https_proxy "http://10.158.100.6:8080/"
-ENV no_proxy="localhost,127.0.0.1,instance-data,169.254.169.254,nokia.net,.nsn-net.net,.nsn-rdnet.net,.ext.net.nokia.com,.int.net.nokia.com,.inside.nsn.com,.inside.nokiasiemensnetworks.com"
-
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0/cpptools-linux.vsix
 RUN mkdir -p /usr/local/share/code-server
 RUN code-server \
