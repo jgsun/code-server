@@ -1,6 +1,6 @@
 FROM codercom/code-server:latest
 
-USER jgsun
+USER rood
 RUN apt -y update && apt -y install gcc wget
 
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0/cpptools-linux.vsix
@@ -24,7 +24,7 @@ RUN code-server \
 RUN rm -f cpptools-linux.vsix
 
 ## set default settings
-COPY settings.json /usr/local/share/code-server/User/settings.json
-COPY keybindings.json /usr/local/share/code-server/User/keybindings.json
-
+COPY settings.json /root/.local/share/User/settings.json
+COPY keybindings.json /root/.local/share/User/keybindings.json
+COPY -rf /usr/local/share/code-server/extensions /root/.local/share/code-server
 
