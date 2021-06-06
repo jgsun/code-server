@@ -1,6 +1,6 @@
 FROM codercom/code-server:latest
 
-USER root
+USER jgsun
 RUN apt -y update && apt -y install gcc wget
 
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0/cpptools-linux.vsix
@@ -18,8 +18,8 @@ RUN code-server \
 	--install-extension esbenp.prettier-vscode \
 	--install-extension ryu1kn.text-marker \
 	--install-extension streetsidesoftware.code-spell-checker \
-  --install-extension kdarkhan.mips \
-  --install-extension plorefice.devicetree \
+	--install-extension kdarkhan.mips \
+	--install-extension plorefice.devicetree \
 	--install-extension cpptools-linux.vsix
 RUN rm -f cpptools-linux.vsix
 
