@@ -26,5 +26,9 @@ RUN rm -f cpptools-linux.vsix
 ## set default settings
 COPY settings.json /root/.local/share/User/settings.json
 COPY keybindings.json /root/.local/share/User/keybindings.json
-COPY /usr/local/share/code-server/extensions /root/.local/share/code-server
+
+## copy extensions
+WORKDIR /usr/local/share/code-server/
+RUN mkdir -p /root/.local/share/code-server/extensions
+ADD extensions /root/.local/share/code-server/extensions
 
