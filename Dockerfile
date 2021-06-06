@@ -1,6 +1,6 @@
 FROM codercom/code-server:latest
 
-USER rood
+USER root
 RUN apt -y update && apt -y install gcc wget
 
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0/cpptools-linux.vsix
