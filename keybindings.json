@@ -1,0 +1,11 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+        {
+                "key": "ctrl+k ctrl+l",
+                "command": "editor.action.transformToLowercase"
+        },
+        {
+                "key": "ctrl+k ctrl+u",
+                "command": "editor.action.transformToUppercase"
+        }
+]
