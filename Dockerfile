@@ -28,7 +28,7 @@ COPY settings.json /root/.local/share/User/settings.json
 COPY keybindings.json /root/.local/share/User/keybindings.json
 
 ## copy extensions
-WORKDIR /usr/local/share/code-server/
 RUN mkdir -p /root/.local/share/code-server/extensions
+WORKDIR /usr/local/share/code-server/ \
 ADD extensions /root/.local/share/code-server/extensions
 
