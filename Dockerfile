@@ -32,6 +32,5 @@ COPY settings.json /usr/local/share/User/settings.json
 COPY keybindings.json /usr/local/share/User/keybindings.json
 
 ## copy extensions
-WORKDIR /usr/local/share/code-server/
-ADD extensions /root/.local/share/code-server/extensions
+ADD /usr/local/share/code-server/extensions /root/.local/share/code-server/extensions
 
