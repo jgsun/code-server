@@ -4,9 +4,7 @@ USER root
 RUN apt -y update && apt -y install gcc wget
 
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0/cpptools-linux.vsix
-RUN mkdir -p /usr/local/share/code-server
 RUN code-server \
-	--user-data-dir /usr/local/share/code-server \
 	--install-extension golang.go \
 	--install-extension ms-python.python \
 	--install-extension formulahendry.code-runner \
@@ -24,13 +22,6 @@ RUN code-server \
 RUN rm -f cpptools-linux.vsix
 
 ## set default settings
-RUN mkdir -p /root/.local/share/code-server/extensions
 RUN mkdir -p /root/.local/share/code-server/User
-COPY settings.json /root/.local/share/User/settings.json
-COPY keybindings.json /root/.local/share/User/keybindings.json
-COPY settings.json /usr/local/share/User/settings.json
-COPY keybindings.json /usr/local/share/User/keybindings.json
-
-## copy extensions
-# ADD /usr/local/share/code-server/extensions /root/.local/share/code-server/extensions
-
+COPY settings.json /root/.local/share/code-server/User/settings.json
+COPY keybindings.json /root/.local/share/code-server/User/keybindings.json
