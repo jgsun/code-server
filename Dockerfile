@@ -3,7 +3,7 @@ FROM codercom/code-server:latest
 USER root
 RUN apt -y update && apt -y install gcc wget
 
-RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0/cpptools-linux.vsix
+RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.5.1/cpptools-linux.vsix
 RUN code-server \
 	--install-extension golang.go \
 	--install-extension ms-python.python \
