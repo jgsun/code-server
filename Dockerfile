@@ -1,7 +1,7 @@
 FROM codercom/code-server:latest
 
 USER root
-RUN apt -y update && apt -y install gcc wget
+RUN apt -y update && apt -y install build-essential gdb gcc wget
 
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.5.1/cpptools-linux.vsix
 RUN code-server \
