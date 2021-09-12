@@ -17,8 +17,10 @@ RUN code-server \
 	--install-extension ryu1kn.text-marker \
 	--install-extension streetsidesoftware.code-spell-checker \
 	--install-extension kdarkhan.mips \
+	--install-extension dan-c-underwood.arm \
 	--install-extension plorefice.devicetree \
-	--install-extension cpptools-linux.vsix
+	--install-extension cpptools-linux.vsix \
+	--install-extension zaaack.markdown-editor
 RUN rm -f cpptools-linux.vsix
 
 ## set default settings
