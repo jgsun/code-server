@@ -20,7 +20,7 @@ RUN code-server \
 	--install-extension dan-c-underwood.arm \
 	--install-extension plorefice.devicetree \
 	--install-extension cpptools-linux.vsix \
-	--install-extension zaaack.markdown-editor
+	--install-extension yzhang.markdown-all-in-one
 RUN rm -f cpptools-linux.vsix
 
 ## set default settings
