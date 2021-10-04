@@ -1,0 +1,6 @@
+bind-addr: 127.0.0.1:8080
+auth: password
+password: 3b4701de10977d81b3822671
+cert: false
+user-data-dir: /home/coder/.local/share/code-server/
+extensions-dir: /home/coder/.local/share/code-server/extensions

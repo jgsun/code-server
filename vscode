@@ -1,0 +1,125 @@
+#!/bin/bash
+
+# define color variable
+export RED='\E[1;31m'       # red
+export GREEN='\E[1;32m'    # green
+export RES='\E[0m'          # clear color
+
+# you can modify below settings for your new project
+#subsitute space, slash, dot and dash by underscores
+# PROJECT_NAME=$(nerbasename $PWD)
+PROJECT_NAME=$(echo "$PWD" | sed -e 's/[ -./]/_/g')
+PROJECT_PORT=10086
+PROJECT_PASSWORD="123456"
+PROJECT_SOURCE_PATH=$PWD
+PROJECT_HOME_PATH=$HOME
+PROJECT_REPO_PATH=/repo/$(whoami)
+PROJECT_REPO2_PATH=/repo2/jiangusu
+PROJECT_CONFIG_PATH="$HOME/.config"
+PROJECT_USER=$USER
+
+# please keep your name in the container name
+# CONTAINER_NAME="$(whoami)_vscode_$PROJECT_NAME
+CONTAINER_NAME=vscode_$PROJECT_NAME
+CONTAINER_NAME=$(whoami)_code_server
+
+
+# local vscode server image
+VSCODE_IMAGE="jgsun/code-server"
+# VSCODE_IMAGE="codercom/code-server"
+
+parse_para()
+{
+    local opt=$(echo $1 | cut -d'=' -f1)
+    local val=$(echo $1 | cut -d'=' -f2)
+    
+    if [ "$opt" = "p" ]; then
+        PROJECT_PORT=$val
+    elif [ "$opt" = "u" ]; then
+        PROJECT_USER=$val
+    fi
+}
+
+start_container()
+{
+    while [ $# -ne 0 ] # while there are still arguments
+    do
+        parse_para $1
+        shift
+    done
+
+    echo -e "    ${RED}Source: $PROJECT_SOURCE_PATH${RES}"
+    echo -e "    ${RED}Config: $PROJECT_CONFIG_PATH${RES}"
+    echo -e "    ${GREEN}Port: $PROJECT_PORT${RES}"
+    echo -e "    ${GREEN}User: $PROJECT_USER${RES}"
+    echo -e "    ${GREEN}container: $CONTAINER_NAME${RES}"
+
+
+    if [ "$PROJECT_USER" = "root" ]; then
+        docker run -ti -d --rm						                    \
+                -e PASSWORD=$PROJECT_PASSWORD				            \
+                -v "$HOME/.config:/root/.config"                        \
+                --cap-add=SYS_PTRACE --security-opt seccomp=unconfined  \
+                -u root					                                \
+                -p $PROJECT_PORT:8080					                \
+                --name $CONTAINER_NAME					                \
+                -v $PROJECT_SOURCE_PATH:/home/coder/project		        \
+                -v $PROJECT_HOME_PATH:$HOME				                \
+                -v $PROJECT_REPO_PATH:/repo/$(whoami)			        \
+                -v $PROJECT_REPO2_PATH:/repo2/$(whoami)			        \
+                $VSCODE_IMAGE
+    else
+        docker run -ti -d --rm						                    \
+                -e PASSWORD=$PROJECT_PASSWORD				            \
+                -v "$HOME/.config:/home/coder/.config"                  \
+                -u ""$(id -u):$(id -g)""					            \
+                -e "DOCKER_USER=$USER"                                  \
+                -p $PROJECT_PORT:8080					                \
+                --name $CONTAINER_NAME					                \
+                -v $PROJECT_SOURCE_PATH:/home/coder/project		        \
+                -v $PROJECT_HOME_PATH:$HOME				                \
+                -v $PROJECT_REPO_PATH:/repo/$(whoami)			        \
+                -v $PROJECT_REPO2_PATH:/repo2/$(whoami)			        \
+                $VSCODE_IMAGE
+    fi
+}
+#-v /usr/include:/usr/include				\
+# --cap-add=SYS_PTRACE --security-opt seccomp=unconfined   \
+
+stop_container()
+{
+    docker container stop $CONTAINER_NAME
+}
+
+login_container()
+{
+    docker exec -it $CONTAINER_NAME bash
+}
+
+case "$1" in
+    start)
+        echo cmd: $(basename $0) $1 $2 $3
+        start_container $2 $3
+        ;;
+    stop)
+        stop_container
+        ;;
+    set)
+        echo -e "${GREEN}setting container, please wait...${RES}"
+        ;;
+    echo)
+        echo -e "${GREEN}success, enjoy!${RES}"
+        ;;
+    login)
+        login_container
+        ;;
+    restart)
+        $0 stop
+        sleep 1
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|login|restart} [u=root or $USER] [p=port]"
+	echo "please run it in path of source code."
+        exit 1
+esac
