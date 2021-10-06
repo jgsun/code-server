@@ -34,3 +34,6 @@ RUN rm -f cpptools-linux.vsix
 ## set default settings
 COPY settings.json /home/coder/.local/share/code-server/User/settings.json
 COPY keybindings.json /home/coder/.local/share/code-server/User/keybindings.json
+
+## overwrite entrypoint.sh
+COPY entrypoint.sh /usr/bin/entrypoint.sh
