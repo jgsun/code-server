@@ -18,9 +18,7 @@ From codercom/code-server:latest, add:
     Default user is $USER, if want to start by root, add parameter u=root.
 
 ## login
-
     ./vscode login
 
 ## stop
-
     ./vscode stop
