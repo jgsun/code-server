@@ -62,7 +62,7 @@ start_container()
         else
                 PROJECT_OPTIONS="-v "$HOME/.config/code-server:/home/coder/.config/code-server" \
                 -u "$(id -u):$(id -g)" \
-                -e "DOCKER_USER=$USER"
+                -e "DOCKER_USER=$USER""
         fi
 
         echo "PROJECT_OPTIONS=$PROJECT_OPTIONS"
