@@ -3,14 +3,14 @@ FROM codercom/code-server:latest
 USER root
 
 ## Set proxy if build from internal subnet
-# ENV http_proxy "http://ip:port"
-# ENV https_proxy "https://ip:port"
+ENV http_proxy "http://135.251.33.15:8080"
+ENV https_proxy "https://135.251.33.15:8080"
 # ENV no_proxy="localhost,127.0.0.1"
 
 
 RUN apt -y update && apt -y install build-essential gdb gcc wget mercurial
 
-RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.5.1/cpptools-linux.vsix
+RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.7.1/cpptools-linux.vsix
 RUN code-server \
 	--user-data-dir=/home/coder/.local/share/code-server \
 	--install-extension golang.go \
