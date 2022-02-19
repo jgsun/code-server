@@ -19,12 +19,11 @@ PROJECT_USER=$USER
 
 PROJECT_CFG_PATH=/local/mnt/workspace/tools/code-server
 
-exit 0
 # please keep your name in the container name
 # CONTAINER_NAME="$(whoami)_vscode_$PROJECT_NAME
 CONTAINER_NAME=vscode_$PROJECT_NAME
 CONTAINER_NAME=$(whoami)_code_server
-# CONTAINER_NAME=$(whoami)_code_server
+# CONTAINER_NAME=$(whoami)_code_server_jgsun
 
 
 # local vscode server image
