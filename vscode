@@ -13,16 +13,18 @@ PROJECT_PORT=10086
 PROJECT_PASSWORD="123456"
 PROJECT_SOURCE_PATH=$PWD
 PROJECT_HOME_PATH=$HOME
-PROJECT_REPO_PATH=/repo/$(whoami)
-PROJECT_REPO2_PATH=/repo2
-PROJECT_REPO1_PATH=/repo1
-PROJECT_CONFIG_PATH="$HOME/.config"
+PROJECT_REPO_PATH=/local/mnt/workspace
+
 PROJECT_USER=$USER
 
+PROJECT_CFG_PATH=/local/mnt/workspace/tools/code-server
+
+exit 0
 # please keep your name in the container name
 # CONTAINER_NAME="$(whoami)_vscode_$PROJECT_NAME
 CONTAINER_NAME=vscode_$PROJECT_NAME
 CONTAINER_NAME=$(whoami)_code_server
+# CONTAINER_NAME=$(whoami)_code_server
 
 
 # local vscode server image
@@ -49,8 +51,6 @@ start_container()
                 shift
         done
 
-        echo -e "    ${RED}Source: $PROJECT_SOURCE_PATH${RES}"
-        echo -e "    ${RED}Config: $PROJECT_CONFIG_PATH${RES}"
         echo -e "    ${GREEN}Port: $PROJECT_PORT${RES}"
         echo -e "    ${GREEN}User: $PROJECT_USER${RES}"
         echo -e "    ${GREEN}container: $CONTAINER_NAME${RES}"
@@ -60,7 +60,7 @@ start_container()
                 -u root \
                 --cap-add=SYS_PTRACE --security-opt seccomp=unconfined"
         else
-                PROJECT_OPTIONS="-v "$HOME/.config/code-server:/home/coder/.config/code-server" \
+                PROJECT_OPTIONS="-v "$PROJECT_CFG_PATH:/home/coder/.config/code-server" \
                 -u "$(id -u):$(id -g)" \
                 -e "DOCKER_USER=$USER""
         fi
@@ -69,14 +69,11 @@ start_container()
 
         docker run -ti -d --rm                                          \
                 -e PASSWORD=$PROJECT_PASSWORD                           \
+		-e --user-data-dir=/home/coder/.local/share/code-server \
                 $PROJECT_OPTIONS                                        \
                 -p $PROJECT_PORT:8080                                   \
                 --name $CONTAINER_NAME                                  \
-                -v $PROJECT_SOURCE_PATH:/home/coder/project             \
-                -v $PROJECT_HOME_PATH:$HOME                             \
-                -v $PROJECT_REPO_PATH:/repo/$(whoami)                   \
-                -v $PROJECT_REPO2_PATH:/repo2                 \
-                -v $PROJECT_REPO1_PATH:/repo1                 \
+                -v $PROJECT_REPO_PATH:$PROJECT_REPO_PATH                \
                 $VSCODE_IMAGE
 }
 
