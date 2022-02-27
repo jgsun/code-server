@@ -38,6 +38,8 @@ RUN HOME=/home/coder code-server \
 	--install-extension plorefice.devicetree.vsix \
 	--install-extension tomoki1207.pdf.vsix \
 	--install-extension whiteout2.arm64.vsix \
+	--install-extension slevesque.vscode-hexdump.vsix \
+	--install-extension walonli.edk2-vscode.vsix \
 	--install-extension ms-python.python \
 	--install-extension formulahendry.code-runner \
 	--install-extension eamodio.gitlens \
@@ -52,6 +54,8 @@ RUN HOME=/home/coder code-server \
 	--install-extension eamodio.gitlens \
 	--install-extension maelvalais.autoconf \
 	--install-extension dan-c-underwood.arm
+#	--install-extension walonli.edk2-vscode \
+#	--install-extension slevesque.vscode-hexdump
 #	--install-extension plorefice.devicetree \
 #	--install-extension EugenWiens.bitbake \
 #	--install-extension whiteout2.arm64
