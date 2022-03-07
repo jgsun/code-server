@@ -43,7 +43,6 @@ RUN HOME=/home/coder code-server \
 	--install-extension ms-python.python \
 	--install-extension formulahendry.code-runner \
 	--install-extension eamodio.gitlens \
-	--install-extension coenraads.bracket-pair-colorizer \
 	--install-extension oderwat.indent-rainbow \
 	--install-extension vscode-icons-team.vscode-icons \
 	--install-extension esbenp.prettier-vscode \
