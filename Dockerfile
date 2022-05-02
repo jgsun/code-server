@@ -33,7 +33,7 @@ USER $UID:$GID
 ## declare HOME explicitely, or else hit err "info  Wrote default config file to ~/.config/code-server/config.yaml" 
 RUN HOME=/home/coder code-server \
 	--user-data-dir=/home/coder/.local/share/code-server \
-	--install-extension ms-vscode.cpptools.vsix \
+	--install-extension ms-vscode.cpptools-1.10.0@linux-x64.vsix \
 	--install-extension EugenWiens.bitbake.vsix \
 	--install-extension plorefice.devicetree.vsix \
 	--install-extension tomoki1207.pdf.vsix \
@@ -59,7 +59,7 @@ RUN HOME=/home/coder code-server \
 #	--install-extension EugenWiens.bitbake \
 #	--install-extension whiteout2.arm64
 #	--install-extension tomoki1207.pdf
-
+# 	ARM A64 Instruction Reference  whiteout2.arm64.vsix
 RUN rm -f *.vsix && rm -rf /home/coder/.local/share/code-server/CachedExtensionVSIXs
 
 ## The user and group will be root and the setting won't go into effect before changing user:group to $UID:$GID or changing
