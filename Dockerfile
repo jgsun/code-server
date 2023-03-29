@@ -46,13 +46,6 @@ USER $UID:$GID
 ## declare HOME explicitely, or else hit err "info  Wrote default config file to ~/.config/code-server/config.yaml"
 RUN HOME=/home/coder code-server \
 	--user-data-dir=/home/coder/.local/share/code-server \
-	--install-extension ms-vscode.cpptools@linux-x64.vsix \
-	--install-extension EugenWiens.bitbake.vsix \
-	--install-extension plorefice.devicetree.vsix \
-	--install-extension tomoki1207.pdf.vsix \
-	--install-extension whiteout2.arm64.vsix \
-	--install-extension slevesque.vscode-hexdump.vsix \
-	--install-extension walonli.edk2-vscode.vsix \
 	--install-extension ms-python.python \
 	--install-extension formulahendry.code-runner \
 	--install-extension eamodio.gitlens \
@@ -70,14 +63,28 @@ RUN HOME=/home/coder code-server \
 	--install-extension tamasfe.even-better-toml \
 	--install-extension usernamehw.errorlens \
 	--install-extension zhuangtongfa.Material-theme \
-	--install-extension vadimcn.vscode-lldb
-#	--install-extension walonli.edk2-vscode \
-#	--install-extension slevesque.vscode-hexdump
-#	--install-extension plorefice.devicetree \
-#	--install-extension EugenWiens.bitbake \
-#	--install-extension whiteout2.arm64
-#	--install-extension tomoki1207.pdf
-# 	ARM A64 Instruction Reference  whiteout2.arm64.vsix
+	--install-extension vadimcn.vscode-lldb \
+	--install-extension plorefice.devicetree \
+	--install-extension tomoki1207.pdf \
+	--install-extension webfreak.debug \
+	--install-extension ms-vscode.cpptools.vsix \
+	--install-extension EugenWiens.bitbake.vsix \
+	--install-extension whiteout2.arm64.vsix \
+	--install-extension slevesque.vscode-hexdump.vsix \
+	--install-extension walonli.edk2-vscode.vsix
+
+###	--install-extension ms-vscode.cpptools.Microsoft \
+###	--install-extension EugenWiens.bitbake \
+###	--install-extension whiteout2.arm64 \
+###	--install-extension slevesque.vscode-hexdump \
+###	--install-extension walonli.edk2-vscode
+
+##	--install-extension ms-vscode.cpptools@linux-x64.vsix \
+##	--install-extension EugenWiens.bitbake.vsix \
+##	--install-extension whiteout2.arm64.vsix \
+##	--install-extension slevesque.vscode-hexdump.vsix \
+##	--install-extension walonli.edk2-vscode.vsix \
+
 RUN rm -f *.vsix && rm -rf /home/coder/.local/share/code-server/CachedExtensionVSIXs
 
 ## The user and group will be root and the setting won't go into effect before changing user:group to $UID:$GID or changing
